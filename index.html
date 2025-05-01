@@ -3,131 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aab Cinta Amina</title>
+  <title>Aab Cinta Amina Selamanya</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to top right, #ffe6f0, #ffccff);
+      background: pink;
       overflow: hidden;
       font-family: 'Comic Sans MS', cursive, sans-serif;
       text-align: center;
-      color: #d6336c;
     }
-
     h1 {
-      margin-top: 60px;
-      font-size: 40px;
-      animation: fadeInDown 1.5s ease;
+      color: deeppink;
+      margin-top: 50px;
+      font-size: 2.5em;
     }
-
     p {
-      font-size: 22px;
-      padding: 20px;
-      animation: fadeInUp 2s ease;
+      color: deeppink;
+      margin: 20px;
+      font-size: 1.2em;
     }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .floating-image {
-      position: absolute;
-      animation: float 10s ease-in-out infinite;
-      opacity: 0.9;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .secret-button {
-      margin-top: 20px;
-      background-color: #ff6666;
+    .button {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(45deg, #ff1493, #ff6ec7);
       color: white;
-      padding: 14px 30px;
-      border-radius: 50px;
-      font-size: 22px;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: 0.3s;
-      cursor: pointer;
       border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 1.2em;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
     }
-
-    .secret-button:hover {
-      background-color: #ff3333;
-      transform: scale(1.1);
-    }
-
-    /* Love effect */
-    @keyframes fallingHearts {
-      0% { top: -50px; opacity: 1; }
-      100% { top: 100vh; opacity: 0; }
-    }
-
-    .falling-hearts {
+    .floating-heart, .floating-image {
       position: absolute;
-      font-size: 24px;
-      animation: fallingHearts 10s linear infinite;
-      pointer-events: none;
+      animation: float 10s infinite;
+      opacity: 0.7;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-100px); }
+      100% { transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <h1>Aab Cinta Amina Selamanya</h1>
-  <p>Amina, kamu itu semangat pagiku, indahnya malamku, dan alasanku tersenyum setiap hari.<br>
-  Aku janji akan terus mencintai kamu, memanjakan kamu, dan nama mu dah tertanam di hatiku dan<br>
-  Kamu satu-satunya untukku, nggak akan tergantikan, selamanya!</p>
 
-  <button class="secret-button" id="loveButton" onclick="playMusic()">Aku Sayang Kamu 😘</button>
+<h1>Aab Cinta Amina Selamanya</h1>
+<p>
+  Amina, kamu itu semangat pagiku, indahnya malamku, dan alasanku tersenyum setiap hari.<br>
+  Aku janji akan terus mencintaimu, memanjakan kamu, dan namamu sudah tertanam di hatiku.<br>
+  Kamu satu-satunya untukku, nggak akan tergantikan, selamanya!
+</p>
 
-  <!-- Foto acak -->
-  <img src="https://files.catbox.moe/4uohvk.jpg" class="floating-image" style="top:10%; left:5%; width:100px;">
-  <img src="https://files.catbox.moe/7zynf0.jpg" class="floating-image" style="top:30%; left:80%; width:120px;">
-  <img src="https://files.catbox.moe/13pmtz.jpg" class="floating-image" style="top:60%; left:10%; width:90px;">
-  <img src="https://files.catbox.moe/gzn4gk.jpg" class="floating-image" style="top:80%; left:70%; width:110px;">
+<!-- Button -->
+<button class="button" onclick="playMusic()">Aku Sayang Kamu! ❤️</button>
 
-  <!-- Audio -->
-  <audio id="myaudio">
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
+<!-- Hearts -->
+<script>
+  for (let i = 0; i < 30; i++) {
+    let heart = document.createElement('div');
+    heart.className = 'floating-heart';
+    heart.innerHTML = '❤️';
+    heart.style.top = Math.random() * 100 + '%';
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    document.body.appendChild(heart);
+  }
+</script>
 
-  <!-- Script -->
-  <script>
-    function createFallingHearts() {
-      const heart = document.createElement('div');
-      heart.classList.add('falling-hearts');
-      heart.innerText = '❤️';
-      heart.style.left = `${Math.random() * 100}%`;
-      heart.style.top = '-30px';
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 10000);
-    }
+<!-- Floating Images -->
+<img src="https://files.catbox.moe/4uohvk.jpg" class="floating-image" style="top:10%; left:5%; width:80px;">
+<img src="https://files.catbox.moe/7zynf0.jpg" class="floating-image" style="top:30%; left:80%; width:100px;">
+<img src="https://files.catbox.moe/13pmtz.jpg" class="floating-image" style="top:60%; left:10%; width:90px;">
+<img src="https://files.catbox.moe/gzn4gk.jpg" class="floating-image" style="top:80%; left:70%; width:110px;">
 
-    function playMusic() {
-      const audio = document.getElementById('myaudio');
-      audio.play();
-      
-      alert('Amina, sejak aku kenal kamu, dunia aku jadi lebih indah, lebih berwarna, lebih bermakna. Aku sayang kamu lebih dari apa pun! Selamanya milikmu!');
+<!-- Musik -->
+<audio id="loveSong" src="https://tinyurl.com/love-music-aab" preload="auto"></audio>
 
-      const button = document.getElementById('loveButton');
-      button.style.backgroundColor = '#ff1493';
-      button.innerText = "Aku Cinta Kamu Banget!! ❤️";
-
-      setInterval(createFallingHearts, 300); // tambah banyak love setelah klik
-    }
-  </script>
+<script>
+  function playMusic() {
+    const audio = document.getElementById('loveSong');
+    audio.play();
+    alert('Aku sayang kamu, Amina! ❤️');
+  }
+</script>
 
 </body>
 </html>
