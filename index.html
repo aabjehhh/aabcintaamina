@@ -105,9 +105,9 @@
       transform: translateX(-50%);
       background-color: #ff6666;
       color: white;
-      padding: 15px 30px;
+      padding: 12px 25px; /* Size adjustment */
       border-radius: 30px;
-      font-size: 22px;
+      font-size: 18px; /* Size adjustment */
       text-decoration: none;
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       transition: 0.3s;
@@ -123,11 +123,11 @@
   <div class="glitter"></div>
   <h1>Aab Cinta Amina Selamanya</h1>
   <p>Amina, kamu itu semangat pagiku, indahnya malamku, dan alasanku tersenyum setiap hari.<br>
-  Aku janji akan terus mencintai kamu, memanjakan kamu, Amina, aku mau bilang kalau aku sayang banget sama kamu dan nama mu dah tertanam di hati ku. jadi apakah kamu sungguh sungguh cinta aku? dan<br>
+  Aku janji akan terus mencintai kamu, memanjakan kamu, dan aku mau bilang gini kalo nama kamu dah tertanam di hatiku dan kamu<br>
   Kamu satu-satunya untukku, nggak akan tergantikan, selamanya!</p>
 
-  <button class="secret-button" onclick="alert('Aku Selalu Cinta Sama Kamu!')">Aku Sayang Kamu</button>
-  
+  <button class="secret-button" onclick="alert('Aku Mau Nikah Sama Kamu!')">Aku Mau Nikah Sama Kamu</button>
+
   <!-- Surat cinta popup -->
   <script>
     setTimeout(() => {
@@ -144,22 +144,4 @@
   <script>
     function createFallingHearts() {
       const heart = document.createElement('div');
-      heart.classList.add('falling-hearts');
-      heart.innerText = '❤️';
-      heart.style.left = `${Math.random() * 100}%`;
-      document.body.appendChild(heart);
-      setTimeout(() => {
-        heart.remove();
-      }, 10000);
-    }
-
-    setInterval(createFallingHearts, 300); // Membuat love jatuh setiap 300ms
-  </script>
-  
-  <!-- Background music -->
-  <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
-</body>
-</html>
+      heart.classList.add('fall
